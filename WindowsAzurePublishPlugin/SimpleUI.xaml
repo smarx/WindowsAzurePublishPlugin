@@ -1,0 +1,27 @@
+﻿<UserControl x:Class="WindowsAzurePublishPlugin.SimpleUI"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Height="auto" Width="auto">
+    <Grid Height="Auto">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100" MinWidth="100" />
+            <ColumnDefinition Width="200" />
+        </Grid.ColumnDefinitions>
+
+        <Label HorizontalAlignment="Right" Grid.Row="0" Grid.Column="0">Account name:</Label>
+        <TextBox Name="AccountName" Margin="3,3,3,3" Grid.Row="0" Grid.Column="1" Text="{Binding Path=AccountName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" ToolTip="Enter your Windows Azure storage account name" />
+
+        <Label HorizontalAlignment="Right" Grid.Row="1" Grid.Column="0">Account key:</Label>
+        <TextBox Name="AccountKey" Margin="3,3,3,3" Grid.Row="1" Grid.Column="1" Text="{Binding Path=AccountKey, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" ToolTip="Enter your Windows Azure storage account key" />
+
+        <Label HorizontalAlignment="Right" Grid.Row="2" Grid.Column="0">Path:</Label>
+        <TextBox Name="BlobPath" Margin="3,3,3,3" Grid.Row="2" Grid.Column="1" Text="{Binding Path=BlobPath, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" ToolTip="Enter the full path (&lt;container&gt;/&lt;directory&gt;) to which you would like to publish" />
+    </Grid>
+</UserControl>
