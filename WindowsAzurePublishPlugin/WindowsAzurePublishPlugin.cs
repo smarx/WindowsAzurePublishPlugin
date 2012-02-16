@@ -62,6 +62,10 @@ namespace WindowsAzurePublishPlugin
             Parallel.ForEach(files, (file) =>
             {
                 var blob = directory.GetBlobReference(Path.GetFileName(file));
+                if (file.Contains(".ismv"))
+                {
+                    blob.Properties.ContentType = "video/ismv";
+                }
                 blob.Properties.CacheControl = "max-age=7200";
                 blob.UploadFile(file);
                 OnProgress(string.Format("Uploaded {0} of {1} files", Interlocked.Increment(ref count), files.Count), (double)count/files.Count);
